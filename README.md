@@ -6,3 +6,5 @@
 * w2d1 : creating custom errors in ruby
 * w2d4 : time/space complexity exercises
 * w2d5 : hash sets, linked lists, hash maps
+* w3d1 : PostgreSQL, basic SELECTS
+* w3d2 : SQLite3 in ruby, CREATES, INSERTS, UPDATES -- ORM & metaprogramming
