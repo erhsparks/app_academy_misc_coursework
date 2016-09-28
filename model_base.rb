@@ -27,14 +27,15 @@ class ModelBase
   end
 
   def update
-    table = TABLEIZE[self.to_s]
+    table = TABLEIZE[self.class.to_s]
 
     i_vars = self.instance_variables.select { |iv| iv != :@id }
     i_vars.map! { |iv| iv[1..-1] }
 
     columns = ""
-    i_vars.each { |iv| columns << "#{iv} = #{self.send(iv)}" }
-require 'byebug' ; debugger
+    i_vars.each { |iv| columns << "#{iv} = '#{self.send(iv)}', " }
+    columns = columns[0...-2]
+
     QuestionsDatabase.instance.execute(<<-SQL, @id)
       UPDATE
         #{table}
@@ -46,16 +47,17 @@ require 'byebug' ; debugger
   end
 
   def create
-    table = TABLEIZE[self.to_s]
+    table = TABLEIZE[self.class.to_s]
 
     i_vars = self.instance_variables.select { |iv| iv != :@id }
     i_vars.map! { |iv| iv[1..-1] }
 
     columns = ""
-    i_vars.each { |iv| columns << "#{iv}" }
+    i_vars.each { |iv| columns << "#{iv}, " }
+    columns = columns[0...-2]
 
     values = ""
-    i_vars.each { |iv| values << "#{self.send(iv)}, "}
+    i_vars.each { |iv| values << "'#{self.send(iv)}', "}
     values = values[0...-2]
 
     QuestionsDatabase.instance.execute(<<-SQL)
