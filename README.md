@@ -8,3 +8,4 @@
 * w2d5 : hash sets, linked lists, hash maps
 * w3d1 : PostgreSQL, basic SELECTS
 * w3d2 : SQLite3 in ruby, CREATES, INSERTS, UPDATES -- ORM & metaprogramming
+# w3d3 : Rails intro: migrations and models
