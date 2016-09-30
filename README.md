@@ -16,4 +16,5 @@
 * w3d1 : PostgreSQL, basic SELECTS
 * w3d2 : SQLite3 in ruby, CREATES, INSERTS, UPDATES; ORM & metaprogramming
 * w3d3 : Rails intro: migrations and models
-* w3d4 : Active Record .includes and .joins; rails polling project
+* w3d4 : ActiveRecord .includes and .joins; rails polling project
+* w3d5 : ActiveRecordLite project: build mini ActiveRecord class
