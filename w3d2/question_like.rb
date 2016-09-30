@@ -16,7 +16,7 @@ class QuestionLike < ModelBase
       WHERE
         questions.id = ?
     SQL
-    return nil unless users.length > 0
+    return nil if users.empty?
 
     users.map { |user| User.new(user) }
   end
@@ -32,7 +32,7 @@ class QuestionLike < ModelBase
       WHERE
         questions.id = ?
     SQL
-    return nil unless likes.length > 0
+    return nil if likes.empty?
 
     likes.first["COUNT(*)"]
   end
@@ -70,7 +70,7 @@ class QuestionLike < ModelBase
       LIMIT
         ?
     SQL
-    return nil unless questions.length > 0
+    return nil if questions.empty?
 
     questions.map { |question| Question.new(question) }
   end

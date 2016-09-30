@@ -15,7 +15,7 @@ class Reply < ModelBase
       WHERE
         user_id = ?
     SQL
-    return nil unless replies.length > 0
+    return nil if replies.empty?
 
     replies.map{ |reply| Reply.new(reply) }
   end
@@ -32,7 +32,7 @@ class Reply < ModelBase
       WHERE
         question_id = ?
     SQL
-    return nil unless replies.length > 0
+    return nil if replies.empty?
 
     replies.map{ |reply| Reply.new(reply) }
   end
@@ -66,7 +66,7 @@ class Reply < ModelBase
       WHERE
         reply_id = ?
     SQL
-    return nil unless replies.length > 0
+    return nil if replies.empty?
 
     replies.map { |reply| Reply.new(reply) }
   end

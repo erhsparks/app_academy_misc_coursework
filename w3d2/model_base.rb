@@ -17,7 +17,7 @@ class ModelBase
       WHERE
         id = ?
     SQL
-    return nil unless found.length > 0
+    return nil if found.empty?
 
     self.new(found.first)
   end

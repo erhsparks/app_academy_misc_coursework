@@ -12,7 +12,7 @@ class User < ModelBase
       WHERE
         fname = ? AND lname = ?
     SQL
-    return nil unless user.length > 0
+    return nil is user.empty?
 
     User.new(user.first)
   end

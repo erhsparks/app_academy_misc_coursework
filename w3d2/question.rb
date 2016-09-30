@@ -15,7 +15,7 @@ class Question < ModelBase
       WHERE
         user_id = ?
     SQL
-    return nil unless questions.length > 0
+    return nil if questions.empty?
 
     questions.map{ |question| Question.new(question) }
   end

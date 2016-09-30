@@ -16,7 +16,7 @@ class QuestionFollow < ModelBase
       WHERE
         questions.id = ?
     SQL
-    return nil unless users.length > 0
+    return nil if users.empty?
 
     users.map { |user| User.new(user) }
   end
@@ -34,7 +34,7 @@ class QuestionFollow < ModelBase
       WHERE
         users.id = ?
     SQL
-    return nil unless questions.length > 0
+    return nil if questions.empty?
 
     questions.map { |question| Question.new(question) }
   end
@@ -54,7 +54,7 @@ class QuestionFollow < ModelBase
       LIMIT
         ?
     SQL
-    return nil unless questions.length > 0
+    return nil if questions.empty?
 
     questions.map { |question| Question.new(question) }
   end
