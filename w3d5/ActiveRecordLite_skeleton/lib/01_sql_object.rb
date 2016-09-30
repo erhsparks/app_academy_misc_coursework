@@ -117,6 +117,6 @@ class SQLObject
   end
 
   def save
-    self.class.find(self.id) ? update : insert
+    self.id ? update : insert
   end
 end
