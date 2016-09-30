@@ -103,10 +103,20 @@ class SQLObject
   end
 
   def update
+    cols = self.class.columns.drop(1)
+    col_names_interpolations = cols.map { |col| "#{col} = ?" }.join(", ")
 
+    DBConnection.execute(<<-SQL, *attribute_values.drop(1), self.id)
+    UPDATE
+      #{self.class.table_name}
+    SET
+      #{col_names_interpolations}
+    WHERE
+      id = ?
+    SQL
   end
 
   def save
-
+    self.class.find(self.id) ? update : insert
   end
 end
