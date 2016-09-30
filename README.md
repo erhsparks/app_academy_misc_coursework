@@ -7,5 +7,6 @@
 * w2d4 : time/space complexity exercises
 * w2d5 : hash sets, linked lists, hash maps
 * w3d1 : PostgreSQL, basic SELECTS
-* w3d2 : SQLite3 in ruby, CREATES, INSERTS, UPDATES -- ORM & metaprogramming
-# w3d3 : Rails intro: migrations and models
+* w3d2 : SQLite3 in ruby, CREATES, INSERTS, UPDATES; ORM & metaprogramming
+* w3d3 : Rails intro: migrations and models
+* w3d4 : Active Record .includes and .joins; rails polling project
