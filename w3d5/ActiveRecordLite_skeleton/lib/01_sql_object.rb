@@ -39,19 +39,25 @@ class SQLObject
   end
 
   def self.all
-    # ...
+    
   end
 
   def self.parse_all(results)
-    # ...
+    
   end
 
   def self.find(id)
-    # ...
+    
   end
 
   def initialize(params = {})
-    
+    params.each do |attr_name, value|
+      if self.class.columns.include?(attr_name.to_sym)
+        self.send("#{attr_name.to_sym}=", value)
+      else
+        raise "unknown attribute '#{attr_name}'"
+      end
+    end
   end
 
   def attributes
@@ -59,18 +65,18 @@ class SQLObject
   end
 
   def attribute_values
-    # ...
+    
   end
 
   def insert
-    # ...
+    
   end
 
   def update
-    # ...
+    
   end
 
   def save
-    # ...
+    
   end
 end
