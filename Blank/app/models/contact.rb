@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  validates [:email, :user_id], presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: { scope: :user_id }
   validates :user_id, presence: true
 
   belongs_to :owner,
