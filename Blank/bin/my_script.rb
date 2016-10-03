@@ -12,4 +12,25 @@ def index_users
     puts RestClient.get(url)
 end
 
-index_users
+# index_users
+
+
+def create_user(name, email)
+  url = Addressable::URI.new(
+    scheme: 'http',
+    host: 'localhost',
+    port: 3000,
+    path: '/users.json'
+  ).to_s
+
+  begin
+    puts RestClient.post(
+      url,
+      { user: { name: "Gizmo" } }
+      )
+  rescue RestClient::Exception => e
+    puts e.message
+  end
+end
+
+create_user("Gizmo", "gizmo@gizmo.gizmo")
