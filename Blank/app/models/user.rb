@@ -11,5 +11,12 @@ class User < ActiveRecord::Base
     through: :contact_shares,
     source: :contact
 
-  has_many :groups
+  has_many :groups, dependent: :destroy
+
+  has_many :notes, as: :commentable, dependent: :destroy
+
+  has_many :authored_notes,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Note
 end

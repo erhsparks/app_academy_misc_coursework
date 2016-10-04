@@ -6,5 +6,6 @@ class Group < ActiveRecord::Base
   has_many :groupings
 
   has_many :contacts,
-    through: :grouings
+    through: :grouings,
+    dependent: :destroy
 end

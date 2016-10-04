@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003225334) do
+ActiveRecord::Schema.define(version: 20161003233522) do
 
   create_table "contact_shares", force: :cascade do |t|
     t.integer  "contact_id", null: false
@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(version: 20161003225334) do
 
   add_index "groups", ["name"], name: "index_groups_on_name"
   add_index "groups", ["user_id"], name: "index_groups_on_user_id"
+
+  create_table "notes", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "author_id",        null: false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "notes", ["commentable_type", "commentable_id"], name: "index_notes_on_commentable_type_and_commentable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",   null: false

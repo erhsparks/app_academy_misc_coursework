@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notes
   resources :groupings
   resources :groups
   # resources :users
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :destroy, :index, :show, :update]
   resources :contacts, only: [:create, :destroy, :show, :update]
   resources :contact_shares, only: [:create, :destroy]
+  resources :notes, only: [:create, :destroy, :index, :show, :update]
+  resources :groups, only: [:create, :destroy, :index, :show, :update]
+  resources :groupings, only: [:create, :destroy]
 
   resources :users do
     resources :contacts, only: :index
