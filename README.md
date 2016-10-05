@@ -1,4 +1,5 @@
 # app_academy_coursework : daily projects
+project work that isn't quite cool enough or big enough to go in a dedicated repo
 
 ## week 1
 * w1d1 : review of enumerables, iteration
