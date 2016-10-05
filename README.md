@@ -18,3 +18,7 @@
 * w3d3 : Rails intro: migrations and models
 * w3d4 : ActiveRecord .includes and .joins; rails polling project
 * w3d5 : ActiveRecordLite project: build mini ActiveRecord class
+
+
+## week 4
+* w4d1 : Rails controllers intro project
