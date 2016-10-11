@@ -23,3 +23,7 @@ project work that isn't quite cool enough or big enough to go in a dedicated rep
 
 ## week 4
 * w4d1 : Rails controllers intro project
+
+
+## week 5
+* w5d2 : RailsLite project: build mini Rails
