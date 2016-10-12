@@ -1,4 +1,4 @@
-Array.prototype.my_uniq = function() {
+Array.prototype.myUniq = function() {
   let result = [];
   this.forEach(function(num) {
     if (result.includes(num)) {
@@ -11,10 +11,10 @@ Array.prototype.my_uniq = function() {
   return result;
 }
 
-// console.log([1,2,3,4,5].my_uniq())
-// console.log([1,2,3,4,5, 2, 3].my_uniq())
+// console.log([1,2,3,4,5].myUniq())
+// console.log([1,2,3,4,5, 2, 3].myUniq())
 
-Array.prototype.two_sum = function() {
+Array.prototype.twoSum = function() {
   let result = [];
   for (i = 0; i < this.length-1; i++) {
     for (j = i+1; j < this.length; j++) {
@@ -27,10 +27,10 @@ Array.prototype.two_sum = function() {
   return result;
 }
 
-// console.log([-1,0,2,-2,1].two_sum())
+// console.log([-1,0,2,-2,1].twoSum())
 
 
-Array.prototype.my_transpose = function() {
+Array.prototype.myTranspose = function() {
   let result = this;
   for (i = 0; i < this.length; i++) {
     for (j = 0; j < this[i].length; j++) {
@@ -45,4 +45,57 @@ let arr = [
     [3, 4, 5],
     [6, 7, 8]
   ];
-console.log(arr.my_transpose())
+
+// console.log(arr.myTranspose())
+
+
+Array.prototype.myEach = function(cb) {
+  for (i = 0; i < this.length; i++) {
+    cb(this[i]);
+  }
+}
+
+function addNum(num) {
+  return num + 10;
+}
+
+// console.log([1,2,3].myEach((num) => console.log(addNum(num))));
+
+
+Array.prototype.myMap = function(cb) {
+  let result = [];
+
+  this.myEach(function(num) {
+    result.push(cb(num));
+  });
+
+  return result;
+}
+
+function addNum(num) {
+  return num + 10;
+}
+
+// console.log([1,2,3].myMap(addNum));
+
+
+Array.prototype.myInject = function(cb) {
+  let array = this;
+  let result = array[0];
+  array.myEach(function(el) {
+    if (el === array[0]) {
+      return;
+    } else {
+      result = cb(result, el);
+    }
+  });
+
+  return result;
+}
+
+function sumNums(result, el) {
+  return result + el;
+}
+
+
+console.log([1,2,3].myInject(sumNums));
