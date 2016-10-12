@@ -115,6 +115,19 @@ Array.prototype.bubbleSort = function() {
   }
 }
 
-let arr2 = [6,2,2,4,7,8,3,4,1,3,7,8];
-arr2.bubbleSort();
-console.log(arr2);
+// let arr2 = [6,2,2,4,7,8,3,4,1,3,7,8];
+// arr2.bubbleSort();
+// console.log(arr2);
+
+function substrings(str) {
+  result = [];
+  for (i = 0; i <= str.length - 1; i++) {
+    for (j = i+1; j <= str.length; j++) {
+      result.push(str.slice(i,j));
+    }
+  }
+
+  return result;
+}
+
+console.log(substrings("cat"));
