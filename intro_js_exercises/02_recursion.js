@@ -140,8 +140,8 @@ function merge(arr1, arr2) {
   return result.concat(arr1).concat(arr2);
 }
 
-console.log(mergeSort([6,2,34,6,7,23,4,87]));
-console.log(mergeSort([6,2]));
+// console.log(mergeSort([6,2,34,6,7,23,4,87]));
+// console.log(mergeSort([6,2]));
 
 
 function subsets() {
