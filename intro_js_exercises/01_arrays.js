@@ -97,5 +97,24 @@ function sumNums(result, el) {
   return result + el;
 }
 
+// console.log([1,2,3].myInject(sumNums));
 
-console.log([1,2,3].myInject(sumNums));
+Array.prototype.bubbleSort = function() {
+  let that = this;
+  let pointer = 0;
+  while (pointer < that.length) {
+    for (i = 0; i < that.length-1; i++) {
+      let j = i+1;
+      if (that[i] > that[j]) {
+        let temp = that[i];
+        that[i] = that[j];
+        that[j] = temp;
+      }
+    }
+    pointer++;
+  }
+}
+
+let arr2 = [6,2,2,4,7,8,3,4,1,3,7,8];
+arr2.bubbleSort();
+console.log(arr2);
