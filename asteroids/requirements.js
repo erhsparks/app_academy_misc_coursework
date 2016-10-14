@@ -15,7 +15,10 @@ const context = canvasEl.getContext("2d");
 //   canvasEl.height
 // ).start(canvasEl);
 
-const mover = new MovingObject({pos: [10,10], vel: [1,1], radius: 20, color: "#66ff33"});
+const mover = new Asteroid({ pos: [10,10] });
 
 window.mover = mover;
-mover.draw(context);
+for (let i = 1; i < 10; i++) {
+  mover.draw(context);
+  mover.move();
+}

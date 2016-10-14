@@ -61,17 +61,31 @@
 	//   canvasEl.height
 	// ).start(canvasEl);
 
-	const mover = new MovingObject({pos: [10,10], vel: [1,1], radius: 20, color: "#66ff33"});
+	const mover = new Asteroid({ pos: [10,10] });
 
 	window.mover = mover;
-	mover.draw(context);
+	for (let i = 1; i < 10; i++) {
+	  mover.draw(context);
+	  mover.move();
+	}
 
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	const Asteroid = function() {};
+	const Utils = __webpack_require__(7);
+	const MovingObject = __webpack_require__(5);
+
+	const Asteroid = function(pos) {
+	  MovingObject.call(this, pos);
+	  this.radius = 20;
+	  this.color = "#d0e1e1";
+	  this.vel = [Math.ceil(Math.random() * 50), Math.ceil(Math.random() * 50)];
+	};
+
+	Utils.inherits(Asteroid, MovingObject);
+
 	module.exports = Asteroid;
 
 
@@ -150,7 +164,10 @@
 
 	const Utils = {
 	  inherits (childClass, parentClass) {
-
+	    function Surrogate() {};
+	    Surrogate.prototype = parentClass.prototype;
+	    childClass.prototype = new Surrogate();
+	    childClass.prototype.constructor = childClass;
 	  }
 	};
 
