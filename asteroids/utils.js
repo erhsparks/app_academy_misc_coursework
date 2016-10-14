@@ -1,2 +1,8 @@
-const Utils = function() {};
+const Utils = {
+  inherits (childClass, parentClass) {
+
+  }
+};
+
+
 module.exports = Utils;

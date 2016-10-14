@@ -52,6 +52,20 @@
 	const Ship = __webpack_require__ (6);
 	const Utils = __webpack_require__ (7);
 
+	const canvasEl = document.getElementsByTagName("canvas")[0];
+	canvasEl.height = window.innerHeight;
+	canvasEl.width = window.innerWidth;
+	const context = canvasEl.getContext("2d");
+	// new Game(
+	//   canvasEl.width,
+	//   canvasEl.height
+	// ).start(canvasEl);
+
+	const mover = new MovingObject({pos: [10,10], vel: [1,1], radius: 20, color: "#66ff33"});
+
+	window.mover = mover;
+	mover.draw(context);
+
 
 /***/ },
 /* 1 */
@@ -89,7 +103,36 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	const MovingObject = function() {};
+	const MovingObject = function(optionsHash) {
+	  this.pos = optionsHash.pos;
+	  this.vel = optionsHash.vel;
+	  this.radius = optionsHash.radius;
+	  this.color = optionsHash.color;
+	};
+
+	MovingObject.prototype.draw = function (context) {
+	  let x = this.pos[0];
+	  let y = this.pos[1];
+
+	  context.fillStyle = this.color;
+	  context.beginPath();
+
+	  context.arc(
+	    x,
+	    y,
+	    this.radius,
+	    0,
+	    2 * Math.PI,
+	    false
+	  );
+
+	  context.fill();
+	};
+
+	MovingObject.prototype.move = function () {
+	  this.pos[0] += this.vel[0];
+	  this.pos[1] += this.vel[1];
+	}
 	module.exports = MovingObject;
 
 
@@ -105,7 +148,13 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	const Utils = function() {};
+	const Utils = {
+	  inherits (childClass, parentClass) {
+
+	  }
+	};
+
+
 	module.exports = Utils;
 
 
