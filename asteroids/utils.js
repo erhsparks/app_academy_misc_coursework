@@ -4,7 +4,10 @@ const Utils = {
     Surrogate.prototype = parentClass.prototype;
     childClass.prototype = new Surrogate();
     childClass.prototype.constructor = childClass;
-  }
+  },
+
+  randomVect:
+    [Math.ceil(Math.random() * 50), Math.ceil(Math.random() * 50)]
 };
 
 

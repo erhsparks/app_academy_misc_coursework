@@ -5,7 +5,7 @@ const Asteroid = function(pos) {
   MovingObject.call(this, pos);
   this.radius = 20;
   this.color = "#d0e1e1";
-  this.vel = [Math.ceil(Math.random() * 50), Math.ceil(Math.random() * 50)];
+  this.vel = Utils.randomVect;
 };
 
 Utils.inherits(Asteroid, MovingObject);

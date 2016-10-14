@@ -45,12 +45,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const Asteroid = __webpack_require__ (1);
-	const Bullet = __webpack_require__ (2);
-	const GameView = __webpack_require__ (3);
-	const Game = __webpack_require__ (4);
-	const MovingObject = __webpack_require__ (5);
-	const Ship = __webpack_require__ (6);
-	const Utils = __webpack_require__ (7);
+	const Bullet = __webpack_require__ (4);
+	const GameView = __webpack_require__ (5);
+	const Game = __webpack_require__ (6);
+	const MovingObject = __webpack_require__ (3);
+	const Ship = __webpack_require__ (7);
+	const Utils = __webpack_require__ (2);
 
 	const canvasEl = document.getElementsByTagName("canvas")[0];
 	canvasEl.height = window.innerHeight;
@@ -74,14 +74,14 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const Utils = __webpack_require__(7);
-	const MovingObject = __webpack_require__(5);
+	const Utils = __webpack_require__(2);
+	const MovingObject = __webpack_require__(3);
 
 	const Asteroid = function(pos) {
 	  MovingObject.call(this, pos);
 	  this.radius = 20;
 	  this.color = "#d0e1e1";
-	  this.vel = [Math.ceil(Math.random() * 50), Math.ceil(Math.random() * 50)];
+	  this.vel = Utils.randomVect;
 	};
 
 	Utils.inherits(Asteroid, MovingObject);
@@ -93,28 +93,24 @@
 /* 2 */
 /***/ function(module, exports) {
 
-	const Bullet = function() {};
-	module.exports = Bullet;
+	const Utils = {
+	  inherits (childClass, parentClass) {
+	    function Surrogate() {};
+	    Surrogate.prototype = parentClass.prototype;
+	    childClass.prototype = new Surrogate();
+	    childClass.prototype.constructor = childClass;
+	  },
+
+	  randomVect:
+	    [Math.ceil(Math.random() * 50), Math.ceil(Math.random() * 50)]
+	};
+
+
+	module.exports = Utils;
 
 
 /***/ },
 /* 3 */
-/***/ function(module, exports) {
-
-	const GameView = function() {};
-	module.exports = GameView;
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	const Game = function() {};
-	module.exports = Game;
-
-
-/***/ },
-/* 5 */
 /***/ function(module, exports) {
 
 	const MovingObject = function(optionsHash) {
@@ -151,28 +147,35 @@
 
 
 /***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	const Bullet = function() {};
+	module.exports = Bullet;
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	const GameView = function() {};
+	module.exports = GameView;
+
+
+/***/ },
 /* 6 */
 /***/ function(module, exports) {
 
-	const Ship = function() {};
-	module.exports = Ship;
+	const Game = function() {};
+	module.exports = Game;
 
 
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
 
-	const Utils = {
-	  inherits (childClass, parentClass) {
-	    function Surrogate() {};
-	    Surrogate.prototype = parentClass.prototype;
-	    childClass.prototype = new Surrogate();
-	    childClass.prototype.constructor = childClass;
-	  }
-	};
-
-
-	module.exports = Utils;
+	const Ship = function() {};
+	module.exports = Ship;
 
 
 /***/ }
