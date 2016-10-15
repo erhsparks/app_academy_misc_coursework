@@ -20,7 +20,8 @@ const gameSetup = new Game();
 
 // window.mover = mover;
 window.game = gameSetup;
-for (let i = 1; i < 10; i++) {
+
+// for (let i = 1; i < 10; i++) {
   game.draw(context);
   // game.move();
-}
+// }
