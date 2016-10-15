@@ -1,2 +1,6 @@
-const Ship = function() {};
+
+function Ship () {};
+
+
+
 module.exports = Ship;

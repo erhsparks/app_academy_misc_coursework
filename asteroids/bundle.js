@@ -61,12 +61,14 @@
 	//   canvasEl.height
 	// ).start(canvasEl);
 
-	const mover = new Asteroid({ pos: [10,10] });
+	// const mover = new Asteroid({ pos: [10,10] });
+	const gameSetup = new Game();
 
-	window.mover = mover;
+	// window.mover = mover;
+	window.game = gameSetup;
 	for (let i = 1; i < 10; i++) {
-	  mover.draw(context);
-	  mover.move();
+	  game.draw(context);
+	  // game.move();
 	}
 
 
@@ -77,7 +79,7 @@
 	const Utils = __webpack_require__(2);
 	const MovingObject = __webpack_require__(3);
 
-	const Asteroid = function(pos) {
+	function Asteroid (pos) {
 	  MovingObject.call(this, pos);
 	  this.radius = 20;
 	  this.color = "#d0e1e1";
@@ -113,7 +115,7 @@
 /* 3 */
 /***/ function(module, exports) {
 
-	const MovingObject = function(optionsHash) {
+	function MovingObject (optionsHash) {
 	  this.pos = optionsHash.pos;
 	  this.vel = optionsHash.vel;
 	  this.radius = optionsHash.radius;
@@ -150,7 +152,12 @@
 /* 4 */
 /***/ function(module, exports) {
 
-	const Bullet = function() {};
+	
+	function Bullet () {};
+
+
+
+
 	module.exports = Bullet;
 
 
@@ -158,15 +165,57 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	const GameView = function() {};
+	
+	function GameView () {};
+
+
+
 	module.exports = GameView;
 
 
 /***/ },
 /* 6 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	const Game = function() {};
+	const Asteroid = __webpack_require__(1);
+
+	function Game () {
+	  this.DIM_X = 350;
+	  this.DIM_Y = 900;
+	  this.NUM_ASTEROIDS = 10;
+	  this.addAsteroids();
+	};
+
+	Game.prototype.addAsteroids = function () {
+	  this.asteroids = [];
+
+	  for (let i = 0; i < this.NUM_ASTEROIDS; i++) {
+	    newAsteroid = this.randomAsteroid();
+	    this.asteroids.push(newAsteroid);
+	  }
+	};
+
+	Game.prototype.randomAsteroid = function () {
+	  return new Asteroid ({
+	    pos: [this.randomPosition(this.DIM_X), this.randomPosition(this.DIM_Y)]
+	  });
+	};
+
+	Game.prototype.randomPosition = function (dim) {
+	  let min = Math.ceil(0 + this.radius);
+	  let max = Math.floor(dim - this.radius);
+
+	  return Math.floor(Math.random() * (max - min)) + min;
+	};
+
+	Game.prototype.draw = function (context) {
+	  context.clearRect(0, 0, this.DIM_X, this.DIM_Y);
+	  this.asteroids.forEach ( asteroid => {
+	    console.log(asteroid);
+	    asteroid.draw(context);
+	  });
+	};
+
 	module.exports = Game;
 
 
@@ -174,7 +223,11 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	const Ship = function() {};
+	
+	function Ship () {};
+
+
+
 	module.exports = Ship;
 
 

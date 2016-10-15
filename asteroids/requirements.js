@@ -15,10 +15,12 @@ const context = canvasEl.getContext("2d");
 //   canvasEl.height
 // ).start(canvasEl);
 
-const mover = new Asteroid({ pos: [10,10] });
+// const mover = new Asteroid({ pos: [10,10] });
+const gameSetup = new Game();
 
-window.mover = mover;
+// window.mover = mover;
+window.game = gameSetup;
 for (let i = 1; i < 10; i++) {
-  mover.draw(context);
-  mover.move();
+  game.draw(context);
+  // game.move();
 }

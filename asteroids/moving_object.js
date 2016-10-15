@@ -1,4 +1,4 @@
-const MovingObject = function(optionsHash) {
+function MovingObject (optionsHash) {
   this.pos = optionsHash.pos;
   this.vel = optionsHash.vel;
   this.radius = optionsHash.radius;

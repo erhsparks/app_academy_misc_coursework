@@ -1,2 +1,7 @@
-const Bullet = function() {};
+
+function Bullet () {};
+
+
+
+
 module.exports = Bullet;

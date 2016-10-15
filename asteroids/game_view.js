@@ -1,2 +1,6 @@
-const GameView = function() {};
+
+function GameView () {};
+
+
+
 module.exports = GameView;
