@@ -4,7 +4,6 @@ project work that isn't quite cool enough or big enough to go in a dedicated rep
 ## week 1
 * w1d1 : review of enumerables, iteration
 * w1d3 : recursion practice
-* w1d5 : Screwdoku debugging and git practice
 
 
 ## week 2
