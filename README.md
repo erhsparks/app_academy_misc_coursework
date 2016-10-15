@@ -27,3 +27,4 @@ project work that isn't quite cool enough or big enough to go in a dedicated rep
 
 ## week 5
 * w5d2 : RailsLite project: build mini Rails
+* w5d3 : Intro to JS! Coding exercises and spec-driven Reversi game
