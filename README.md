@@ -28,4 +28,5 @@ project work that isn't quite cool enough or big enough to go in a dedicated rep
 ## week 5
 * w5d2 : RailsLite project: build mini Rails
 * w5d3 : Intro to JS! Coding exercises and spec-driven Reversi game
-* w5d4 : JS callback fcn practice ; Towers of Hanoi and Tic-Tac-Toe in js
+* w5d4 : JS callback fcn practice ; Towers of Hanoi and Tic-Tac-Toe in JS
+* w5d5 : ES5-style object inheritance in JS ; Asteroids game mentioned in git logs is now in its own repo
